@@ -22,7 +22,7 @@ public class BasicEnemy : MonoBehaviour
         rb.velocity = direction * speed;
         
         // rotate to face the player
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
     }
