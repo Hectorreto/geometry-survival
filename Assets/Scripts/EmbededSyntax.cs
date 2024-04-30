@@ -16,9 +16,14 @@ public class EmbededSyntax : MonoBehaviour
     private Vector3 aimPosition;
     private float zRotation;
 
+    [SerializeField] private Transform shootPosition;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private int speedProjectile;
+
     private void OnEnable()
     {
         shootAction.performed += Shoot;
+        //shootAction.canceled += Shoot;
         shootAction.Enable();
 
         moveAction.performed += Move;
@@ -50,8 +55,10 @@ public class EmbededSyntax : MonoBehaviour
 
     private void Shoot(InputAction.CallbackContext value)
     {
-
-        print("Shoot assigned");    
+        Vector3 shootDirection = aimPosition - shootPosition.position;
+        GameObject tempProjectile = Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
+        tempProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootDirection.x, shootDirection.y).normalized * speedProjectile;
+        //print("Shoot assigned");    
     }
 
     private void Move(InputAction.CallbackContext value)
@@ -90,7 +97,9 @@ public class EmbededSyntax : MonoBehaviour
     private void OnDisable()
     {
         shootAction.performed -= Shoot;
+        //shootAction.canceled -= Shoot;
         shootAction.Disable();
+
 
         moveAction.performed -= Move;
         moveAction.canceled -= StopMove;

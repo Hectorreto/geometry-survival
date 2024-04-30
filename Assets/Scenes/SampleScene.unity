@@ -455,7 +455,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   mouseRotationAction:
-    m_Name: 
+    m_Name: Mouse Rotation
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: c76afa46-7cfa-4abb-8c38-e6c722bf38ff
@@ -464,7 +464,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   gamepadRotationAction:
-    m_Name: 
+    m_Name: Gamepad Rotation
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 5d5d35f3-3ea7-4bd8-9c15-ce1322e20339
@@ -473,6 +473,9 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   speed: 0
+  shootPosition: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  speedProjectile: 0
 --- !u!4 &683662106
 Transform:
   m_ObjectHideFlags: 0
@@ -536,17 +539,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5153459761412820554, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5436887720591125153, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
       propertyPath: m_Name
       value: playerNewInput
-      objectReference: {fileID: 0}
-    - target: {fileID: 5436887720591125153, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
