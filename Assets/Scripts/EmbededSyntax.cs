@@ -5,12 +5,13 @@ using UnityEngine.InputSystem;
 
 public class EmbededSyntax : MonoBehaviour
 {
-    public InputAction ShootAction;
+    public InputAction shootAction;
+    public InputAction moveAction;
 
     private void OnEnable()
     {
-        ShootAction.performed += Shoot;
-        ShootAction.Enable();
+        shootAction.performed += Shoot;
+        shootAction.Enable();
     }
     // Start is called before the first frame update
     void Start()
@@ -31,8 +32,8 @@ public class EmbededSyntax : MonoBehaviour
 
     private void OnDisable()
     {
-        ShootAction.performed -= Shoot;
-        ShootAction.Disable();
+        shootAction.performed -= Shoot;
+        shootAction.Disable();
     }
 
 }

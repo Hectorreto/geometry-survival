@@ -372,16 +372,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aa2116f811e1b41a586ecf9efac241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootAction:
+  shootAction:
     m_Name: Shoot
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: a5e02376-27f0-4f4d-ada4-401290b85313
+    m_Id: 7ba2fc4d-63d4-4c24-92c7-a3e98d046bbe
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: c8fdd3b5-2a23-4fa7-afd9-b824509aa923
+      m_Id: ec085012-eb93-4687-931b-6a2e4855df03
       m_Path: <Mouse>/leftButton
       m_Interactions: 
       m_Processors: 
@@ -389,13 +389,22 @@ MonoBehaviour:
       m_Action: Shoot
       m_Flags: 0
     - m_Name: 
-      m_Id: 12afdcfa-925e-48ab-acb0-3232f25a0a77
+      m_Id: 10b1e12e-bdf7-47d8-a0b6-f611de3b5111
       m_Path: <Gamepad>/buttonWest
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Shoot
       m_Flags: 0
+    m_Flags: 0
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ca69d7d7-a96c-4425-ba46-7642643e04e7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
     m_Flags: 0
 --- !u!4 &683662106
 Transform:
