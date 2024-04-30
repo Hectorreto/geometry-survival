@@ -24,5 +24,17 @@ public class BasicEnemy : MonoBehaviour
         // rotate to face the player
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Hit");
+
+        if (other.gameObject.tag == "Bullet")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
