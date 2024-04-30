@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     public float speed = 5f;
     private Rigidbody2D rb;
 
@@ -12,6 +12,7 @@ public class BasicEnemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -29,8 +30,6 @@ public class BasicEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit");
-
         if (other.gameObject.tag == "Bullet")
         {
             Destroy(other.gameObject);
