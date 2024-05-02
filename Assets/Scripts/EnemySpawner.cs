@@ -5,15 +5,15 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public float spawnInterval = 5f;
-    public float spawnRadius = 10f;
-    private GameObject player;
+    public float spawnInterval = 2f;
+    public int spawnLimit = 10;
+    public float minSpawnRadius = 10f;
+    public float maxSpawnRadius = 15f;
 
+    private int spawnCount = 0;
 
-    // Start is called before the first frame update
     void Start()
-    {        
-        player = GameObject.FindWithTag("Player");
+    {
         StartCoroutine(SpawnEnemies());
     }
 
@@ -21,19 +21,34 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            // Calculate a random position within the spawn radius
-            Vector3 spawnPosition = transform.position + Random.insideUnitSphere * spawnRadius;
-            spawnPosition.z = 0; // Ensure enemies spawn at ground level
-
-            // Check if the spawn position is far away from the player
-            if (Vector2.Distance(spawnPosition, player.transform.position) > spawnRadius)
+            if (spawnCount < spawnLimit) 
             {
+                Vector3 direction = Random.insideUnitSphere;
+                direction.z = 0;
+
+                Vector3 spawnPosition = transform.position;
+                spawnPosition += direction * (maxSpawnRadius - minSpawnRadius);
+                spawnPosition += direction.normalized * minSpawnRadius;
+
                 // Spawn the enemy at the calculated position
-                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                spawnCount++;
+
+                // Decrease the spawn count when the enemy is destroyed
+                enemy.GetComponent<BasicEnemy>().OnDestroy += () => spawnCount--;
             }
 
             // Wait for the specified interval before spawning the next enemy
             yield return new WaitForSeconds(spawnInterval);
-        }
-    }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, maxSpawnRadius);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, minSpawnRadius);
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,15 @@ public class BasicEnemy : MonoBehaviour
     public float speed = 5f;
     private Rigidbody2D rb;
 
+    // This is used so scripts can know when an enemy is destroyed
+    public Action OnDestroy = () => {};
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
+        OnDestroy += () => {};
     }
 
     // Update is called once per frame
@@ -34,6 +39,7 @@ public class BasicEnemy : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+            OnDestroy();
         }
     }
 }
