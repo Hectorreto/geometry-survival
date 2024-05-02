@@ -397,6 +397,15 @@ MonoBehaviour:
       m_Action: Shoot
       m_Flags: 0
     m_Flags: 0
+  shootGamepad:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e31802b5-3e67-4f27-af1f-3b22985005d8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   moveAction:
     m_Name: Move
     m_Type: 0
@@ -476,6 +485,7 @@ MonoBehaviour:
   shootPosition: {fileID: 0}
   projectilePrefab: {fileID: 0}
   speedProjectile: 0
+  shootCooldown: 0
 --- !u!4 &683662106
 Transform:
   m_ObjectHideFlags: 0
@@ -499,6 +509,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: shootCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: shootGamepad.m_Name
+      value: Shoot Gamepad
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: shootGamepad.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: shootGamepad.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: shootAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: shootGamepad.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: shootGamepad.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 54790946-b097-4d42-a8fb-6b952e6aad72
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: shootAction.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Gamepad>/rightTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: shootGamepad.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/rightTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: shootGamepad.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Shoot Gamepad
+      objectReference: {fileID: 0}
     - target: {fileID: 4340972410212619476, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01

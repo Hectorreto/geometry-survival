@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class EmbededSyntax : MonoBehaviour
 {
     public InputAction shootAction;
+    public InputAction shootGamepad;
     public InputAction moveAction;
     public InputAction mouseRotationAction;
     public InputAction gamepadRotationAction;
 
     [SerializeField] private float speed;
     private Rigidbody2D rb;
-    private Vector2 direction;
+    private Vector2 direction, directionGamepad, rotationGamepad;
     private Vector3 aimPosition;
     private float zRotation;
 
@@ -20,11 +22,17 @@ public class EmbededSyntax : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private int speedProjectile;
 
+    [SerializeField] private float shootCooldown;
+    private float lastShootTime;
+
     private void OnEnable()
     {
         shootAction.performed += Shoot;
         //shootAction.canceled += Shoot;
         shootAction.Enable();
+
+        shootGamepad.Enable();
+        //shootGamepad.performed += GamepadShoot;
 
         moveAction.performed += Move;
         moveAction.canceled += StopMove;
@@ -33,7 +41,7 @@ public class EmbededSyntax : MonoBehaviour
         mouseRotationAction.performed += MouseRotation;
         mouseRotationAction.Enable();
 
-        gamepadRotationAction.performed += GamepadRotation;
+        //gamepadRotationAction.performed += GamepadRotation;
         gamepadRotationAction.Enable();
     }
     // Start is called before the first frame update
@@ -45,21 +53,28 @@ public class EmbededSyntax : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //direction = moveAction.ReadValue<Vector2>().normalized;  
+        //direction = moveAction.ReadValue<Vector2>().normalized;
+        if (gamepadRotationAction.ReadValue<Vector2>().normalized != null)
+        {
+            Vector2 direction = gamepadRotationAction.ReadValue<Vector2>().normalized;
+            GamepadRotation(direction);
+        }
     }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector2 (direction.x, direction.y) * speed;
+
     }
 
     private void Shoot(InputAction.CallbackContext value)
     {
         Vector3 shootDirection = aimPosition - shootPosition.position;
         GameObject tempProjectile = Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
-        tempProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootDirection.x, shootDirection.y).normalized * speedProjectile;
-        //print("Shoot assigned");    
+        tempProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootDirection.x, shootDirection.y).normalized * speedProjectile;  
     }
+
+
 
     private void Move(InputAction.CallbackContext value)
     {
@@ -79,12 +94,21 @@ public class EmbededSyntax : MonoBehaviour
         ApplyRotation(direction);
     }
 
-    private void GamepadRotation(InputAction.CallbackContext value)
+    private void GamepadRotation(/*InputAction.CallbackContext*/ Vector2 value)
     {
-        Vector2 directionStick = value.ReadValue<Vector2>();
+        print("Holiwi");    
+        Vector2 directionStick = value;
         if(directionStick != Vector2.zero)
         {
             ApplyRotation(directionStick);
+            if (Time.time-lastShootTime > shootCooldown)
+            {
+                GameObject tempProjectile = Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
+                tempProjectile.GetComponent<Rigidbody2D>().velocity = directionStick.normalized * speedProjectile;
+                Destroy(tempProjectile,2.0f);
+                lastShootTime = Time.time;
+            }
+
         }
     }
 
@@ -100,6 +124,8 @@ public class EmbededSyntax : MonoBehaviour
         //shootAction.canceled -= Shoot;
         shootAction.Disable();
 
+        //shootGamepad.performed -= GamepadShoot;
+        shootGamepad.Disable();
 
         moveAction.performed -= Move;
         moveAction.canceled -= StopMove;
@@ -108,7 +134,7 @@ public class EmbededSyntax : MonoBehaviour
         mouseRotationAction.performed -= MouseRotation;
         mouseRotationAction.Disable();
 
-        gamepadRotationAction.performed -= GamepadRotation;
+        //gamepadRotationAction.performed -= GamepadRotation;
         gamepadRotationAction.Disable();
     }
 
