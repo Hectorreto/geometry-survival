@@ -17,7 +17,6 @@ public class BasicEnemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
-        OnDestroy += () => {};
     }
 
     // Update is called once per frame
@@ -29,7 +28,7 @@ public class BasicEnemy : MonoBehaviour
         
         // rotate to face the player
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Euler(0, 0, angle);
 
     }
 

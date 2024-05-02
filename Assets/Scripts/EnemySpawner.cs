@@ -23,10 +23,8 @@ public class EnemySpawner : MonoBehaviour
         {
             if (spawnCount < spawnLimit) 
             {
-                Vector3 direction = Random.insideUnitSphere;
-                direction.z = 0;
-
-                Vector3 spawnPosition = transform.position;
+                Vector2 direction = Random.insideUnitSphere;
+                Vector2 spawnPosition = transform.position;
                 spawnPosition += direction * (maxSpawnRadius - minSpawnRadius);
                 spawnPosition += direction.normalized * minSpawnRadius;
 

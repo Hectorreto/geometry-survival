@@ -8,16 +8,8 @@ public class Movement : MonoBehaviour
     public float bulletSpeed = 10.0f;
     public GameObject bulletPrefab;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-         
-    }
-
-    // Update is called once per frame
     void Update()
     {
-
         // move the player ignoring where it is facing
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -25,8 +17,8 @@ public class Movement : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = movement * speed;
 
         // rotate to face the mouse
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 playerPos = transform.position;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 playerPos = transform.position;
         float angle = Mathf.Atan2(mousePos.y - playerPos.y, mousePos.x - playerPos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
