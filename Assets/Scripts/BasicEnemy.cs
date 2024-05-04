@@ -8,6 +8,7 @@ public class BasicEnemy : MonoBehaviour
     private GameObject player;
     public float speed = 5f;
     private Rigidbody2D rb;
+    public ParticleSystem ps;
 
     // This is used so scripts can know when an enemy is destroyed
     public Action OnDestroy = () => {};
@@ -36,6 +37,7 @@ public class BasicEnemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
+            Instantiate(ps, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             Destroy(gameObject);
             OnDestroy();
