@@ -486,6 +486,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   speedProjectile: 0
   shootCooldown: 0
+  shootSoundClip: {fileID: 0}
 --- !u!4 &683662106
 Transform:
   m_ObjectHideFlags: 0
@@ -493,6 +494,192 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683662104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1756680021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5436887720591125153, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+  m_PrefabInstance: {fileID: 4994918963933034021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1756680022
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756680021}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 69e142e5d9a333541a25f707dd6cb05c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &1953642922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1953642926}
+  - component: {fileID: 1953642925}
+  - component: {fileID: 1953642924}
+  - component: {fileID: 1953642923}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1953642923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953642922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d07a79276ef50246a27bdf250b28606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 2849279608732700309, guid: fa26b93dc27e05c4ba5314a27b769a28, type: 3}
+  spawnInterval: 2
+  spawnLimit: 10
+  minSpawnRadius: 9
+  maxSpawnRadius: 12
+--- !u!114 &1953642924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953642922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d07a79276ef50246a27bdf250b28606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 34638207734409651, guid: f38d84a4c98fc304d9cfc29414b8a30b, type: 3}
+  spawnInterval: 2
+  spawnLimit: 10
+  minSpawnRadius: 9
+  maxSpawnRadius: 12
+--- !u!114 &1953642925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953642922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d07a79276ef50246a27bdf250b28606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 796909114274087866, guid: 6eb11394ec3916f439a1789628f1d2e8, type: 3}
+  spawnInterval: 2
+  spawnLimit: 10
+  minSpawnRadius: 9
+  maxSpawnRadius: 12
+--- !u!4 &1953642926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953642922}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -510,45 +697,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: shootCooldown
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: shootGamepad.m_Name
-      value: Shoot Gamepad
-      objectReference: {fileID: 0}
-    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: shootGamepad.m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: shootGamepad.m_ExpectedControlType
-      value: Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: shootAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: shootGamepad.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: shootGamepad.m_SingletonActionBindings.Array.data[0].m_Id
-      value: 54790946-b097-4d42-a8fb-6b952e6aad72
-      objectReference: {fileID: 0}
-    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: shootAction.m_SingletonActionBindings.Array.data[1].m_Path
-      value: <Gamepad>/rightTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: shootGamepad.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Gamepad>/rightTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
-      propertyPath: shootGamepad.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Shoot Gamepad
-      objectReference: {fileID: 0}
+      propertyPath: shootSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 69e142e5d9a333541a25f707dd6cb05c, type: 3}
     - target: {fileID: 4340972410212619476, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
@@ -596,7 +747,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5436887720591125153, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1756680022}
   m_SourcePrefab: {fileID: 100100000, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -606,3 +760,4 @@ SceneRoots:
   - {fileID: 84630819}
   - {fileID: 4994918963933034021}
   - {fileID: 683662106}
+  - {fileID: 1953642926}

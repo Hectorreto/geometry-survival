@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2762750832437563957}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.39, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5153459761412820554}
   m_Layer: 0
   m_Name: playerNewInput
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08215743, y: 0.08215743, z: 0.08215743}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 24288167751614338}
@@ -95,23 +95,23 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Shoot
       m_Flags: 0
-    - m_Name: 
-      m_Id: 10b1e12e-bdf7-47d8-a0b6-f611de3b5111
-      m_Path: <Gamepad>/buttonWest
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot
-      m_Flags: 0
     m_Flags: 0
   shootGamepad:
     m_Name: Shoot Gamepad
-    m_Type: 0
-    m_ExpectedControlType: 
+    m_Type: 1
+    m_ExpectedControlType: Button
     m_Id: d4c2791f-6854-436d-940e-6436e90b7b7a
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 54790946-b097-4d42-a8fb-6b952e6aad72
+      m_Path: <Gamepad>/rightTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shoot Gamepad
+      m_Flags: 0
     m_Flags: 0
   moveAction:
     m_Name: Move
@@ -208,7 +208,7 @@ MonoBehaviour:
   shootPosition: {fileID: 24288167751614338}
   projectilePrefab: {fileID: 7065043616948065361, guid: 9251abe9d154f98458814350b1960c3a, type: 3}
   speedProjectile: 10
-  shootCooldown: 0
+  shootCooldown: 0.2
 --- !u!212 &1679916483865918766
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8549af82a8a2ef943a23bb22b507c8b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed19f54c9f53f854299833b2b99caa11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

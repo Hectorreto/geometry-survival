@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour
 {
+
+    public AudioClip dieSoundClip;
+    private AudioSource dieAudioSource;
+
+
     private GameObject player;
     public float speed = 5f;
     private Rigidbody2D rb;
@@ -18,6 +23,8 @@ public class BasicEnemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
+        dieAudioSource = GetComponent<AudioSource>();
+        dieAudioSource.clip = dieSoundClip;
     }
 
     // Update is called once per frame
@@ -37,6 +44,7 @@ public class BasicEnemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
+            //dieAudioSource.Play();
             Instantiate(ps, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             Destroy(gameObject);

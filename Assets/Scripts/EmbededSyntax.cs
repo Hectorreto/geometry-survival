@@ -25,6 +25,9 @@ public class EmbededSyntax : MonoBehaviour
     [SerializeField] private float shootCooldown;
     private float lastShootTime;
 
+    public AudioClip shootSoundClip;
+    private AudioSource shootAudioSource;
+
     private void OnEnable()
     {
         shootAction.performed += Shoot;
@@ -48,6 +51,8 @@ public class EmbededSyntax : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        shootAudioSource = GetComponent<AudioSource>();
+        shootAudioSource.clip = shootSoundClip;
     }
 
     // Update is called once per frame
@@ -70,8 +75,9 @@ public class EmbededSyntax : MonoBehaviour
     private void Shoot(InputAction.CallbackContext value)
     {
         Vector3 shootDirection = aimPosition - shootPosition.position;
-        GameObject tempProjectile = Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
-        tempProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootDirection.x, shootDirection.y).normalized * speedProjectile;  
+        GameObject tempProjectile = Instantiate(projectilePrefab, shootPosition.position, transform.rotation);
+        tempProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootDirection.x, shootDirection.y).normalized * speedProjectile;
+        shootAudioSource.Play();
     }
 
 
@@ -103,9 +109,10 @@ public class EmbededSyntax : MonoBehaviour
             ApplyRotation(directionStick);
             if (Time.time-lastShootTime > shootCooldown)
             {
-                GameObject tempProjectile = Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
+                GameObject tempProjectile = Instantiate(projectilePrefab, shootPosition.position, transform.rotation);
                 tempProjectile.GetComponent<Rigidbody2D>().velocity = directionStick.normalized * speedProjectile;
                 Destroy(tempProjectile,2.0f);
+                shootAudioSource.Play();
                 lastShootTime = Time.time;
             }
 
