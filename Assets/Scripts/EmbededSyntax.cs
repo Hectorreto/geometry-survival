@@ -25,8 +25,8 @@ public class EmbededSyntax : MonoBehaviour
     [SerializeField] private float shootCooldown;
     private float lastShootTime;
 
-    public AudioClip shootSoundClip;
-    private AudioSource shootAudioSource;
+    // public AudioClip shootSoundClip;
+    // private AudioSource shootAudioSource;
 
     private void OnEnable()
     {
@@ -51,8 +51,8 @@ public class EmbededSyntax : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        shootAudioSource = GetComponent<AudioSource>();
-        shootAudioSource.clip = shootSoundClip;
+        // shootAudioSource = GetComponent<AudioSource>();
+        // shootAudioSource.clip = shootSoundClip;
     }
 
     // Update is called once per frame
@@ -77,7 +77,7 @@ public class EmbededSyntax : MonoBehaviour
         Vector3 shootDirection = aimPosition - shootPosition.position;
         GameObject tempProjectile = Instantiate(projectilePrefab, shootPosition.position, transform.rotation);
         tempProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootDirection.x, shootDirection.y).normalized * speedProjectile;
-        shootAudioSource.Play();
+        // shootAudioSource.Play();
     }
 
 
@@ -112,7 +112,7 @@ public class EmbededSyntax : MonoBehaviour
                 GameObject tempProjectile = Instantiate(projectilePrefab, shootPosition.position, transform.rotation);
                 tempProjectile.GetComponent<Rigidbody2D>().velocity = directionStick.normalized * speedProjectile;
                 Destroy(tempProjectile,2.0f);
-                shootAudioSource.Play();
+                // shootAudioSource.Play();
                 lastShootTime = Time.time;
             }
 
