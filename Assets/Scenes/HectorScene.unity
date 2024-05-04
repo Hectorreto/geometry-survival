@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  bulletSpeed: 10
+  bulletSpeed: 12
   bulletPrefab: {fileID: 7065043616948065361, guid: 9251abe9d154f98458814350b1960c3a, type: 3}
 --- !u!50 &528296252
 Rigidbody2D:

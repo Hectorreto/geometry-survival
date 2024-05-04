@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed = 5.0f;
-    public float bulletSpeed = 10.0f;
+    public float bulletSpeed = 12.0f;
     public GameObject bulletPrefab;
 
     void Update()
@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
         // shot a bullet when click mouse
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = transform.right * bulletSpeed;
 
             // destroy the bullet after 5 seconds

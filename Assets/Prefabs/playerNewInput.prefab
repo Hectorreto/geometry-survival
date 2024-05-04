@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 5436887720591125153}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.01, y: -0.13, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.08215743, y: 0.08215743, z: 0.08215743}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -103,6 +103,15 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Shoot
       m_Flags: 0
+    m_Flags: 0
+  shootGamepad:
+    m_Name: Shoot Gamepad
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d4c2791f-6854-436d-940e-6436e90b7b7a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
     m_Flags: 0
   moveAction:
     m_Name: Move
@@ -199,6 +208,7 @@ MonoBehaviour:
   shootPosition: {fileID: 24288167751614338}
   projectilePrefab: {fileID: 7065043616948065361, guid: 9251abe9d154f98458814350b1960c3a, type: 3}
   speedProjectile: 10
+  shootCooldown: 0
 --- !u!212 &1679916483865918766
 SpriteRenderer:
   m_ObjectHideFlags: 0
