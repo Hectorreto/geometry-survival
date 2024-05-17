@@ -225,7 +225,8 @@ MonoBehaviour:
   speed: 5
   bulletSpeed: 12
   bulletPrefab: {fileID: 7065043616948065361, guid: 9251abe9d154f98458814350b1960c3a, type: 3}
-  health: 2
+  health: 5
+  glowingRing: {fileID: 4288918377053707391, guid: d72a416d621fad14b84dc4a031d6cbfc, type: 3}
 --- !u!50 &528296252
 Rigidbody2D:
   serializedVersion: 4

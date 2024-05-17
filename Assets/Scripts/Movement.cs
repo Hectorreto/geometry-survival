@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -8,6 +9,7 @@ public class Movement : MonoBehaviour
     public float bulletSpeed = 12.0f;
     public GameObject bulletPrefab;
     public int health = 3;
+    public ParticleSystem glowingRing;
 
     void Update()
     {
@@ -58,5 +60,7 @@ public class Movement : MonoBehaviour
                 rangeEnemies.GetComponent<BasicEnemy>().Explosion();
             }
         }
+
+        Instantiate(glowingRing, transform.position, Quaternion.identity);
     }
 }
