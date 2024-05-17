@@ -25,10 +25,13 @@ public class PlayerLimits : MonoBehaviour
 
     void Update()
     {
-        // Mantén al jugador dentro de los límites
-        var playerPos = player.transform.position;
-        playerPos.x = Mathf.Clamp(playerPos.x, xMin, -xMin);
-        playerPos.y = Mathf.Clamp(playerPos.y, yMin, yMax);
-        player.transform.position = playerPos;
+        if (player != null)
+        {
+            // Mantén al jugador dentro de los límites
+            var playerPos = player.transform.position;
+            playerPos.x = Mathf.Clamp(playerPos.x, xMin, -xMin);
+            playerPos.y = Mathf.Clamp(playerPos.y, yMin, yMax);
+            player.transform.position = playerPos;
+        }
     }
 }

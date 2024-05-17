@@ -224,6 +224,7 @@ MonoBehaviour:
   speed: 5
   bulletSpeed: 10
   bulletPrefab: {fileID: 7065043616948065361, guid: 9251abe9d154f98458814350b1960c3a, type: 3}
+  health: 2
 --- !u!50 &84630821
 Rigidbody2D:
   serializedVersion: 4
@@ -694,6 +695,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &1756680023
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756680021}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.029680014, y: -0.03561628}
+  serializedVersion: 2
+  m_Radius: 0.3318125
 --- !u!1 &1953642922
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,6 +879,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5436887720591125153, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1756680023}
     - targetCorrespondingSourceObject: {fileID: 5436887720591125153, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1756680022}

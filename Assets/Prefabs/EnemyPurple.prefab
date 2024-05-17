@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 529165336893795997}
   m_Layer: 0
   m_Name: EnemyPurple
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a8d77ace0a44b47b19056559731896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieSoundClip: {fileID: 8300000, guid: b64ef24920ac2e940a751d3efab368de, type: 3}
   speed: 2
   ps: {fileID: 1290523068856044294, guid: 656aa6fa389304e4aa39c9c55b584974, type: 3}
 --- !u!50 &2248940515262303810

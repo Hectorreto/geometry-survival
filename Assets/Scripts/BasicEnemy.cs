@@ -31,24 +31,30 @@ public class BasicEnemy : MonoBehaviour
     void Update()
     {
         // move towards the player
-        Vector2 direction = (player.transform.position - transform.position).normalized;
-        rb.velocity = direction * speed;
+        if (player != null)
+        {
+            Vector2 direction = (player.transform.position - transform.position).normalized;
+            rb.velocity = direction * speed;
         
-        // rotate to face the player
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-
+            // rotate to face the player
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Bullet")
         {
-            //dieAudioSource.Play();
-            Instantiate(ps, transform.position, Quaternion.identity);
+            Explosion();
             Destroy(other.gameObject);
-            Destroy(gameObject);
-            OnDestroy();
         }
+    }
+
+    public void Explosion()
+    {
+        Instantiate(ps, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        OnDestroy();
     }
 }

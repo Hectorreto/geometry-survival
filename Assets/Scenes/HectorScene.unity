@@ -225,6 +225,7 @@ MonoBehaviour:
   speed: 5
   bulletSpeed: 12
   bulletPrefab: {fileID: 7065043616948065361, guid: 9251abe9d154f98458814350b1960c3a, type: 3}
+  health: 2
 --- !u!50 &528296252
 Rigidbody2D:
   serializedVersion: 4
@@ -298,6 +299,7 @@ GameObject:
   - component: {fileID: 1223470571}
   - component: {fileID: 1223470570}
   - component: {fileID: 1223470569}
+  - component: {fileID: 1223470572}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -379,6 +381,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1223470572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223470568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a33d95d4ca42840843538adeaa7e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 528296248}
+  spriteSize: 0.5
 --- !u!1 &1264881731
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,10 +427,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 796909114274087866, guid: 6eb11394ec3916f439a1789628f1d2e8, type: 3}
-  spawnInterval: 2
+  spawnInterval: 0.5
   spawnLimit: 10
-  minSpawnRadius: 9
-  maxSpawnRadius: 12
+  minSpawnRadius: 15
+  maxSpawnRadius: 20
 --- !u!4 &1264881733
 Transform:
   m_ObjectHideFlags: 0
@@ -443,10 +459,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 34638207734409651, guid: f38d84a4c98fc304d9cfc29414b8a30b, type: 3}
-  spawnInterval: 2
+  spawnInterval: 0.5
   spawnLimit: 10
-  minSpawnRadius: 9
-  maxSpawnRadius: 12
+  minSpawnRadius: 15
+  maxSpawnRadius: 20
 --- !u!114 &1264881735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,10 +476,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2849279608732700309, guid: fa26b93dc27e05c4ba5314a27b769a28, type: 3}
-  spawnInterval: 2
+  spawnInterval: 0.5
   spawnLimit: 10
-  minSpawnRadius: 9
-  maxSpawnRadius: 12
+  minSpawnRadius: 15
+  maxSpawnRadius: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
