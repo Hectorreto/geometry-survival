@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 
 public class Movement : MonoBehaviour
 {
@@ -8,6 +11,7 @@ public class Movement : MonoBehaviour
     public float bulletSpeed = 12.0f;
     public GameObject bulletPrefab;
     public int health = 3;
+    public event EventHandler PlayerDeath;
 
     void Update()
     {
@@ -32,6 +36,18 @@ public class Movement : MonoBehaviour
             // destroy the bullet after 5 seconds
             Destroy(bullet, 5.0f);
         }
+
+
+        CheckHealth();
+    }
+
+    public void CheckHealth()
+    {
+        if (health <= 0)
+        {
+            PlayerDeath?.Invoke(this, EventArgs.Empty);
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,10 +57,11 @@ public class Movement : MonoBehaviour
             DestroyEnemies();
             health -= 1;
 
-            if (health == 0)
-            {
-                Destroy(gameObject);
-            }
+            //if (health <= 0)
+            //{
+            //    PlayerDeath?.Invoke(this, EventArgs.Empty);
+            //    Destroy(gameObject);
+            //}
         }
     }
 
