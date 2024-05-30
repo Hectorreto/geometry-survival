@@ -7,14 +7,20 @@ using System;
 public class GameOverMenu : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverMenu;
-    private Movement movement;
+    private CombatManager combatManager;
 
     private void Start()
     {
-        movement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
-        //movement.CheckHealth += ActivateMenu;
+        //combatManager = GameObject.FindGameObjectWithTag("Player").GetComponent<CombatManager>();
+        //combatManager.PlayerDeath += ActivateInterface;
 
     }
+
+    //private void ActivateInterface(object sender, EventArgs e)
+    //{
+    //    print("Si me activo");
+    //    gameOverMenu.SetActive(true);
+    //}
 
     private void activateMenu(object sender, EventArgs e)
     {
@@ -24,6 +30,7 @@ public class GameOverMenu : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1.0f;
     }
 
     public void MainMenu(string name)

@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.5
   ps: {fileID: 1290523068856044294, guid: 656aa6fa389304e4aa39c9c55b584974, type: 3}
+  damageToPlayer: 1
 --- !u!50 &2729776852053994780
 Rigidbody2D:
   serializedVersion: 4

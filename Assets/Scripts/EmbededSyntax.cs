@@ -102,7 +102,7 @@ public class EmbededSyntax : MonoBehaviour
 
     private void GamepadRotation(/*InputAction.CallbackContext*/ Vector2 value)
     {
-        print("Holiwi");    
+        //print("Holiwi");    
         Vector2 directionStick = value;
         if(directionStick != Vector2.zero)
         {

@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     public float bulletSpeed = 12.0f;
     public GameObject bulletPrefab;
     public int health = 3;
-    public event EventHandler PlayerDeath;
+    //public event EventHandler PlayerDeath;
 
     void Update()
     {
@@ -38,17 +38,17 @@ public class Movement : MonoBehaviour
         }
 
 
-        CheckHealth();
+        //CheckHealth();
     }
 
-    public void CheckHealth()
-    {
-        if (health <= 0)
-        {
-            PlayerDeath?.Invoke(this, EventArgs.Empty);
-            Destroy(gameObject);
-        }
-    }
+    //public void CheckHealth()
+    //{
+    //    if (health <= 0)
+    //    {
+    //        PlayerDeath?.Invoke(this, EventArgs.Empty);
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

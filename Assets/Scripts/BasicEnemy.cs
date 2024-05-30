@@ -15,6 +15,8 @@ public class BasicEnemy : MonoBehaviour
     private Rigidbody2D rb;
     public ParticleSystem ps;
 
+    [SerializeField] int damageToPlayer;
+
     // This is used so scripts can know when an enemy is destroyed
     public Action OnDestroy = () => {};
 
@@ -48,6 +50,20 @@ public class BasicEnemy : MonoBehaviour
         {
             Explosion();
             Destroy(other.gameObject);
+        }
+
+        //if (other.gameObject.tag == "Player")
+        //{
+        //    other.GetComponent<CombatManager>().TakeDamage(damageToPlayer);
+        //}
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag ("Player"))
+        {
+            print("Si detecto colision");
+            collision.gameObject.GetComponent<CombatManager>().TakeDamage(damageToPlayer);
         }
     }
 
