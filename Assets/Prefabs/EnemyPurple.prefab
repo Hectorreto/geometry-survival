@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5265700096792993082}
   - component: {fileID: 2417286114106649643}
   - component: {fileID: 196928798374462226}
+  - component: {fileID: -7985640014583435968}
   - component: {fileID: 2248940515262303810}
   - component: {fileID: 3120663504492973209}
   - component: {fileID: 529165336893795997}
@@ -100,9 +101,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a8d77ace0a44b47b19056559731896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
   ps: {fileID: 1290523068856044294, guid: 656aa6fa389304e4aa39c9c55b584974, type: 3}
   damageToPlayer: 1
+--- !u!114 &-7985640014583435968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849279608732700309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b23af76eb0deb43b3a982586dd61d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  rotationSpeed: 80
 --- !u!50 &2248940515262303810
 Rigidbody2D:
   serializedVersion: 4
