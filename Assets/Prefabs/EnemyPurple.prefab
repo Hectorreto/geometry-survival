@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2248940515262303810}
   - component: {fileID: 3120663504492973209}
   - component: {fileID: 529165336893795997}
+  - component: {fileID: 369646078335448174}
   m_Layer: 0
   m_Name: EnemyPurple
   m_TagString: Enemy
@@ -275,3 +276,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &369646078335448174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849279608732700309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d64b6e7fc21b4459987de85ccad2fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

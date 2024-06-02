@@ -12,7 +12,7 @@ public class CombatManager : MonoBehaviour
 
     private void Update()
     {
-        print(health);
+        // print(health);
     }
 
     public void TakeDamage(int damage)
@@ -36,7 +36,11 @@ public class CombatManager : MonoBehaviour
         {
             if (rangeEnemies.gameObject.CompareTag("Enemy"))
             {
-                rangeEnemies.GetComponent<BasicEnemy>().Explosion();
+                BasicEnemy basicEnemy = rangeEnemies.GetComponent<BasicEnemy>();
+                if (basicEnemy != null)
+                {
+                    basicEnemy.Explosion();
+                }
             }
         }
     }

@@ -50,6 +50,15 @@ public class Movement : MonoBehaviour
     //    }
     //}
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            health -= 1;
+            Destroy(other.gameObject);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -72,7 +81,11 @@ public class Movement : MonoBehaviour
         {
             if (rangeEnemies.gameObject.CompareTag("Enemy"))
             {
-                rangeEnemies.GetComponent<BasicEnemy>().Explosion();
+                BasicEnemy basicEnemy = rangeEnemies.GetComponent<BasicEnemy>();
+                if (basicEnemy != null)
+                {
+                    basicEnemy.Explosion();
+                }
             }
         }
     }
