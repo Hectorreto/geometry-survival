@@ -5,48 +5,31 @@ using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour
 {
-
-    // public AudioClip dieSoundClip;
-    // private AudioSource dieAudioSource;
     public ParticleSystem ps;
-
-    [SerializeField] int damageToPlayer;
+    [SerializeField] int damageToPlayer = 1;
 
     // This is used so scripts can know when an enemy is destroyed
     public Action OnDestroy = () => {};
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // dieAudioSource = GetComponent<AudioSource>();
-        // dieAudioSource.clip = dieSoundClip;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Bullet")
-        {
-            Explosion();
-            Destroy(other.gameObject);
-        }
-
-        //if (other.gameObject.tag == "Player")
-        //{
-        //    other.GetComponent<CombatManager>().TakeDamage(damageToPlayer);
-        //}
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag ("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            print("Si detecto colision");
+            collision.gameObject.GetComponent<CombatManager>().TakeDamage(damageToPlayer);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Player bullet
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Explosion();
+            Destroy(collision.gameObject);
+        }
+
+        else if (collision.gameObject.CompareTag("Player"))
+        {
             collision.gameObject.GetComponent<CombatManager>().TakeDamage(damageToPlayer);
         }
     }

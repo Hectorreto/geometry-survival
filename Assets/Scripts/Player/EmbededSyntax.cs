@@ -58,11 +58,10 @@ public class EmbededSyntax : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //direction = moveAction.ReadValue<Vector2>().normalized;
-        if (gamepadRotationAction.ReadValue<Vector2>().normalized != null)
+        Vector2 direction = gamepadRotationAction.ReadValue<Vector2>();
+        if (direction.magnitude > 0.1f)
         {
-            Vector2 direction = gamepadRotationAction.ReadValue<Vector2>().normalized;
-            GamepadRotation(direction);
+            GamepadRotation(direction.normalized);
         }
     }
 

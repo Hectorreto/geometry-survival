@@ -1415,8 +1415,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 2849279608732700309, guid: fa26b93dc27e05c4ba5314a27b769a28, type: 3}
   spawnInterval: 2
   spawnLimit: 10
-  minSpawnRadius: 9
-  maxSpawnRadius: 12
+  minSpawnRadius: 20
+  maxSpawnRadius: 25
 --- !u!114 &1953642924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,8 +1432,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 34638207734409651, guid: f38d84a4c98fc304d9cfc29414b8a30b, type: 3}
   spawnInterval: 2
   spawnLimit: 10
-  minSpawnRadius: 9
-  maxSpawnRadius: 12
+  minSpawnRadius: 20
+  maxSpawnRadius: 25
 --- !u!114 &1953642925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1449,8 +1449,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 796909114274087866, guid: 6eb11394ec3916f439a1789628f1d2e8, type: 3}
   spawnInterval: 2
   spawnLimit: 10
-  minSpawnRadius: 9
-  maxSpawnRadius: 12
+  minSpawnRadius: 20
+  maxSpawnRadius: 25
 --- !u!4 &1953642926
 Transform:
   m_ObjectHideFlags: 0
