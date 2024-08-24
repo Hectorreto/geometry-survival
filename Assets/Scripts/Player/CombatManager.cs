@@ -7,7 +7,7 @@ public class CombatManager : MonoBehaviour
 {
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] private int health;
-    public event EventHandler PlayerDeath;
+    // public event EventHandler PlayerDeath;
 
 
     private void Update()

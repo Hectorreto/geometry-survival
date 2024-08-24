@@ -25,6 +25,9 @@ public class EmbededSyntax : MonoBehaviour
     [SerializeField] private float shootCooldown;
     private float lastShootTime;
 
+    public FloatingJoystick leftFloatingJoystick;
+    public FloatingJoystick rightFloatingJoystick;
+
     // public AudioClip shootSoundClip;
     // private AudioSource shootAudioSource;
 
@@ -58,7 +61,14 @@ public class EmbededSyntax : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = gamepadRotationAction.ReadValue<Vector2>();
+        Vector2 normalJoystickDirection = gamepadRotationAction.ReadValue<Vector2>();
+        Vector2 touchJoystickDirection = rightFloatingJoystick.Direction;
+        Vector2 direction = normalJoystickDirection;
+        if (touchJoystickDirection.magnitude > normalJoystickDirection.magnitude)
+        {
+            direction = touchJoystickDirection;
+        }
+
         if (direction.magnitude > 0.1f)
         {
             GamepadRotation(direction.normalized);
@@ -67,8 +77,15 @@ public class EmbededSyntax : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2 (direction.x, direction.y) * speed;
+        Vector2 normalJoystickDirection = this.direction;
+        Vector2 touchJoystickDirection = leftFloatingJoystick.Direction;
+        Vector2 direction = normalJoystickDirection;
+        if (touchJoystickDirection.magnitude > normalJoystickDirection.magnitude)
+        {
+            direction = touchJoystickDirection;
+        }
 
+        rb.velocity = new Vector2 (direction.x, direction.y) * speed;
     }
 
     private void Shoot(InputAction.CallbackContext value)
