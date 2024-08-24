@@ -8,16 +8,21 @@ public class MenuManager : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("GameScene");
     }
 
     public void Credits()
     {
-        print("credits");
+        SceneManager.LoadScene("Credits_Menu");
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
