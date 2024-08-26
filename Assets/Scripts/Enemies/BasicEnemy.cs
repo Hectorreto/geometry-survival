@@ -7,9 +7,16 @@ public class BasicEnemy : MonoBehaviour
 {
     public ParticleSystem ps;
     [SerializeField] int damageToPlayer = 1;
+    [SerializeField] int scoreToAdd;
+    private GameManager gameManager;
 
     // This is used so scripts can know when an enemy is destroyed
     public Action OnDestroy = () => {};
+
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -24,6 +31,7 @@ public class BasicEnemy : MonoBehaviour
         // Player bullet
         if (collision.gameObject.tag == "Bullet")
         {
+            gameManager.UpdateScore(scoreToAdd);
             Explosion();
             Destroy(collision.gameObject);
         }

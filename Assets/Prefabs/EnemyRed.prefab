@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ps: {fileID: 1290523068856044294, guid: 656aa6fa389304e4aa39c9c55b584974, type: 3}
   damageToPlayer: 1
+  scoreToAdd: 3
 --- !u!114 &4724349068451841726
 MonoBehaviour:
   m_ObjectHideFlags: 0
