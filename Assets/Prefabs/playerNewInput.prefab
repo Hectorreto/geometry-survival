@@ -211,6 +211,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7065043616948065361, guid: 9251abe9d154f98458814350b1960c3a, type: 3}
   speedProjectile: 10
   shootCooldown: 0.2
+  leftFloatingJoystick: {fileID: 0}
+  rightFloatingJoystick: {fileID: 0}
 --- !u!114 &1183442668249043766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +225,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c603003bdf514e41b2c25dee473214f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  gameOverMenu: {fileID: 0}
+  maxHealth: 3
+  healthSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &1679916483865918766
 SpriteRenderer:
   m_ObjectHideFlags: 0
