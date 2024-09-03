@@ -227,10 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverMenu: {fileID: 0}
   maxHealth: 3
-  healthSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  playerHealthUI: {fileID: 0}
 --- !u!212 &1679916483865918766
 SpriteRenderer:
   m_ObjectHideFlags: 0

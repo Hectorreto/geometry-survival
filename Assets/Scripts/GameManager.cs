@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     private float remainingTime;
     public TextMeshProUGUI countDownText;
     #endregion
+
+    [SerializeField] GameObject WinMenu;
+
+    public bool hasWon = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         SetCountDown();
+        HasWonTheLevel(hasWon);
     }
 
     public void UpdateScore(int scoreToAdd)
@@ -48,6 +54,19 @@ public class GameManager : MonoBehaviour
         else
         {
             countDownText.text = "00:00";
+            //Play a completed level sound effect
+            hasWon = true;
         }
     }
+
+    void HasWonTheLevel(bool hasWon)
+    {
+        if (hasWon)
+        {
+            WinMenu.SetActive(hasWon);
+            Time.timeScale = 0;
+        }
+
+    }
+
 }
