@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -67,6 +68,12 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
+    }
+
+   public void LoadNextLevel(string LevelName)
+    {
+        // SceneManager.LoadScene(LevelName);
+        Debug.Log("Se cargó el nivel: " + LevelName);
     }
 
 }
