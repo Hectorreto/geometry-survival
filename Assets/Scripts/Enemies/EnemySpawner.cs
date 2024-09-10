@@ -14,7 +14,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnEnemies());
+        // Usamos StartCoroutine para poder usar la función WaitForSeconds
+        StartCoroutine(SpawnEnemies()); 
     }
 
     IEnumerator SpawnEnemies()
