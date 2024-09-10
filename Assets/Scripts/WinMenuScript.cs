@@ -24,5 +24,4 @@ public class WinMenuScript : MonoBehaviour
         CurrentLevelText.text = "Completed Level: " + currentLevel;
         // Save the currentLevel in memory
     }
-        
 }

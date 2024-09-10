@@ -32,18 +32,15 @@ public class CombatManager : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
-            //PlayerDeath?.Invoke(this, EventArgs.Empty);
-            gameOverMenu.SetActive(true);
-            Destroy(gameObject);
-            Time.timeScale = 0;
+            this.gameObject.GetComponent<EmbededSyntax>().gameObject.SetActive(false);
+            Invoke("BeforeGameOver", 1f);
         }
         playerHealthUI.UpdateHealthUI(currentHealth);
     }
 
     private void DestroyEnemies()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 8.0f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 6.0f);
         foreach (var rangeEnemies in colliders)
         {
             if (rangeEnemies.gameObject.CompareTag("Enemy"))
@@ -57,6 +54,12 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-
-
+    void BeforeGameOver()
+    {
+        currentHealth = 0;
+        //PlayerDeath?.Invoke(this, EventArgs.Empty);
+        gameOverMenu.SetActive(true);
+        Destroy(gameObject);
+        Time.timeScale = 0;
+    }
 }

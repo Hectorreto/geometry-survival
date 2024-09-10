@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
             WinMenu.SetActive(hasWon);
             Time.timeScale = 0;
         }
-
     }
 
    public void LoadNextLevel(string LevelName)
