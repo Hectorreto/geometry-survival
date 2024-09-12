@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class PowerUpManager : MonoBehaviour
 {
-    Rigidbody2D rb;
-    EmbededSyntax embededSyntax;
+    [SerializeField] private float dashTime = 0.2f;
+    [SerializeField] private float dashForce = 100f;
+
+    private Rigidbody2D rb;
+    private float dashingRemainingTime = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        embededSyntax = GetComponent<EmbededSyntax>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Dash();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,7 +29,7 @@ public class PowerUpManager : MonoBehaviour
             case "DashPowerup":
                 print("Dash collected!");
                 Destroy(collision.gameObject);
-                StartCoroutine(Dash());
+                dashingRemainingTime = dashTime;
                 break;
 
             case "BubblePowerup":
@@ -37,11 +39,12 @@ public class PowerUpManager : MonoBehaviour
         }
     }
 
-    IEnumerator Dash()
+    void Dash()
     {
-        float originalSpeed = embededSyntax.speed;
-        embededSyntax.speed *= 3;
-        yield return new WaitForSeconds(0.2f);// Dash duration
-        embededSyntax.speed = originalSpeed;
+        if (dashingRemainingTime > 0)
+        {
+            dashingRemainingTime -= Time.deltaTime;
+            rb.AddForce(transform.right * dashForce);
+        }
     }
 }
