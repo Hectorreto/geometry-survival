@@ -12,7 +12,7 @@ public class EmbededSyntax : MonoBehaviour
     public InputAction mouseRotationAction;
     public InputAction gamepadRotationAction;
 
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
     private Rigidbody2D rb;
     private Vector2 direction, directionGamepad, rotationGamepad;
     private Vector3 aimPosition;
