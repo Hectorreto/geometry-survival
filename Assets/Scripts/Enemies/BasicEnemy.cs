@@ -35,6 +35,11 @@ public class BasicEnemy : MonoBehaviour
             Explosion();
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.tag == "DashShield")
+        {
+            gameManager.UpdateScore(scoreToAdd);
+            Explosion();
+        }
 
         else if (collision.gameObject.CompareTag("Player"))
         {

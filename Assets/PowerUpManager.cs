@@ -10,10 +10,14 @@ public class PowerUpManager : MonoBehaviour
     private Rigidbody2D rb;
     private float dashingRemainingTime = 0;
 
+    [SerializeField] private GameObject dashShield;
+    private CombatManager combatManager;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        combatManager = GetComponent<CombatManager>();
     }
 
     // Update is called once per frame
@@ -45,6 +49,12 @@ public class PowerUpManager : MonoBehaviour
         {
             dashingRemainingTime -= Time.deltaTime;
             rb.AddForce(transform.right * dashForce);
+            combatManager.hasShield = true;
+            dashShield.SetActive(true);
+        }else
+        {
+            combatManager.hasShield = false;
+            dashShield.SetActive(false);
         }
     }
 }

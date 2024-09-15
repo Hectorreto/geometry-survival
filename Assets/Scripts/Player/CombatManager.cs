@@ -10,6 +10,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private int maxHealth;
     private int currentHealth;
     public PlayerHealth playerHealthUI;
+    public bool hasShield = false;
     //[SerializeField]private Image[] healthSprites;
     // public event EventHandler PlayerDeath;
 
@@ -27,8 +28,9 @@ public class CombatManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
         DestroyEnemies();
+        if (hasShield) return;
+        currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
