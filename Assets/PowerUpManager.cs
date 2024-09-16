@@ -9,7 +9,8 @@ public class PowerUpManager : MonoBehaviour
 
     private Rigidbody2D rb;
     private float dashingRemainingTime = 0;
-
+    private float dashCooldown = 0;
+    private int dashCount = 0;
     [SerializeField] private GameObject dashShield;
     private CombatManager combatManager;
 
@@ -33,7 +34,7 @@ public class PowerUpManager : MonoBehaviour
             case "DashPowerup":
                 print("Dash collected!");
                 Destroy(collision.gameObject);
-                dashingRemainingTime = dashTime;
+                dashCount =+ 3;
                 break;
 
             case "BubblePowerup":
@@ -43,11 +44,13 @@ public class PowerUpManager : MonoBehaviour
         }
     }
 
-    void Dash()
+    public void Dash()
     {
+        dashCooldown -= Time.deltaTime;
         if (dashingRemainingTime > 0)
         {
             dashingRemainingTime -= Time.deltaTime;
+
             rb.AddForce(transform.right * dashForce);
             combatManager.hasShield = true;
             dashShield.SetActive(true);
@@ -55,6 +58,24 @@ public class PowerUpManager : MonoBehaviour
         {
             combatManager.hasShield = false;
             dashShield.SetActive(false);
+        }
+    }
+
+    public void ActivateDash()
+    {
+        print("Dash Count: " + dashCount);
+
+        if (dashCooldown > 0) return;
+        if (dashCount >0)
+        {
+            dashCooldown = 1;
+            dashingRemainingTime = dashTime;
+            dashCount --;
+            //activate UIDashButton 
+        }
+        else
+        {
+            //deactivate UIDashButton
         }
     }
 }

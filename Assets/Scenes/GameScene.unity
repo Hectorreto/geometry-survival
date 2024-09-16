@@ -3058,7 +3058,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4260,7 +4260,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953642922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d07a79276ef50246a27bdf250b28606, type: 3}
   m_Name: 
@@ -4277,7 +4277,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953642922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d07a79276ef50246a27bdf250b28606, type: 3}
   m_Name: 
@@ -4294,7 +4294,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953642922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d07a79276ef50246a27bdf250b28606, type: 3}
   m_Name: 
@@ -4337,7 +4337,7 @@ MonoBehaviour:
   spawnRangeX: 7.5
   spawnRangeY: 4
   firstTimeSec: 1
-  repeatingTimeSec: 1
+  repeatingTimeSec: 10
 --- !u!1 &2081555046
 GameObject:
   m_ObjectHideFlags: 0
@@ -4556,6 +4556,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: dashAction.m_Name
+      value: Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
       propertyPath: leftFloatingJoystick
       value: 
       objectReference: {fileID: 835566222}
@@ -4563,6 +4567,22 @@ PrefabInstance:
       propertyPath: rightFloatingJoystick
       value: 
       objectReference: {fileID: 366928916}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: dashAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: dashAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: be282b42-2578-4727-84ca-df6154def7bd
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: dashAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/rightTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 900548559952725608, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: dashAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Dash
+      objectReference: {fileID: 0}
     - target: {fileID: 1183442668249043766, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
       propertyPath: gameOverMenu
       value: 

@@ -8,9 +8,12 @@ public class EmbededSyntax : MonoBehaviour
 {
     public InputAction shootAction;
     public InputAction shootGamepad;
+    public InputAction dashAction;
     public InputAction moveAction;
     public InputAction mouseRotationAction;
     public InputAction gamepadRotationAction;
+
+    private PowerUpManager powerUpManager;
 
     [SerializeField] public float speed;
     private Rigidbody2D rb;
@@ -37,6 +40,9 @@ public class EmbededSyntax : MonoBehaviour
         //shootAction.canceled += Shoot;
         shootAction.Enable();
 
+        dashAction.performed += Dash;
+        dashAction.Enable();
+
         shootGamepad.Enable();
         //shootGamepad.performed += GamepadShoot;
 
@@ -54,6 +60,7 @@ public class EmbededSyntax : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        powerUpManager = GetComponent<PowerUpManager>();
         // shootAudioSource = GetComponent<AudioSource>();
         // shootAudioSource.clip = shootSoundClip;
     }
@@ -96,7 +103,10 @@ public class EmbededSyntax : MonoBehaviour
         // shootAudioSource.Play();
     }
 
-
+    private void Dash(InputAction.CallbackContext value)
+    {
+        powerUpManager.ActivateDash();
+    }
 
     private void Move(InputAction.CallbackContext value)
     {
@@ -146,6 +156,9 @@ public class EmbededSyntax : MonoBehaviour
         shootAction.performed -= Shoot;
         //shootAction.canceled -= Shoot;
         shootAction.Disable();
+
+        dashAction.performed -= Shoot;
+        dashAction.Disable();
 
         //shootGamepad.performed -= GamepadShoot;
         shootGamepad.Disable();
