@@ -92,7 +92,7 @@ public class EmbededSyntax : MonoBehaviour
             direction = touchJoystickDirection;
         }
 
-        rb.velocity = new Vector2 (direction.x, direction.y) * speed;
+        rb.velocity = new Vector2 (direction.x, direction.y).normalized * speed;
     }
 
     private void Shoot(InputAction.CallbackContext value)

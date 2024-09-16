@@ -67,7 +67,7 @@ public class PowerUpManager : MonoBehaviour
         {
             dashingRemainingTime -= Time.deltaTime;
 
-            rb.AddForce(transform.right * dashForce);
+            rb.AddForce(transform.right * dashForce * Time.deltaTime);
             combatManager.hasShield = true;
             dashShield.SetActive(true);
         }else
