@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PowerUpManager : MonoBehaviour
 {
+    #region Dash
+    [Header("Dash Settings")]
     [SerializeField] private float dashTime = 0.2f;
     [SerializeField] private float dashForce = 100f;
 
-    private Rigidbody2D rb;
     private float dashingRemainingTime = 0;
     private float dashCooldown = 0;
     private int dashCount = 0;
     [SerializeField] private GameObject dashShield;
+
+    // UI Button
+    [SerializeField] private TextMeshProUGUI dashCountText;
+    [SerializeField] private GameObject powerupButton;
+    #endregion
+
+    private Rigidbody2D rb;
     private CombatManager combatManager;
 
     // Start is called before the first frame update
@@ -44,9 +53,16 @@ public class PowerUpManager : MonoBehaviour
         }
     }
 
-    public void Dash()
+    private void Dash()
     {
+        // UI Button
+        dashCountText.text = dashCount.ToString();
+        powerupButton.SetActive(dashCount > 0);
+        
+        // Cooldown
         dashCooldown -= Time.deltaTime;
+
+
         if (dashingRemainingTime > 0)
         {
             dashingRemainingTime -= Time.deltaTime;
