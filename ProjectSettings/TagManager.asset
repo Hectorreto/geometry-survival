@@ -9,6 +9,7 @@ TagManager:
   - DashPowerup
   - BubblePowerup
   - DashShield
+  - BubbleShield
   layers:
   - Default
   - TransparentFX

@@ -20,6 +20,11 @@ public class PowerUpManager : MonoBehaviour
     [SerializeField] private GameObject powerupButton;
     #endregion
 
+    #region
+    [Header("Bubble Shield Settings")]
+    [SerializeField] private GameObject[] shieldBubbles;
+    #endregion
+
     private Rigidbody2D rb;
     private CombatManager combatManager;
 
@@ -49,6 +54,10 @@ public class PowerUpManager : MonoBehaviour
             case "BubblePowerup":
                 print("Bubble collected!");
                 Destroy(collision.gameObject);
+                foreach (var bubble in shieldBubbles)
+                {
+                    bubble.gameObject.SetActive(true);
+                }
                 break;
         }
     }

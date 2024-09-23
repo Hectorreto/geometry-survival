@@ -28,22 +28,28 @@ public class BasicEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Player bullet
-        if (collision.gameObject.tag == "Bullet")
+        switch (collision.gameObject.tag)
         {
-            gameManager.UpdateScore(scoreToAdd);
-            Explosion();
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.tag == "DashShield")
-        {
-            gameManager.UpdateScore(scoreToAdd);
-            Explosion();
-        }
+            case "Bullet":
+                gameManager.UpdateScore(scoreToAdd);
+                Explosion();
+                Destroy(collision.gameObject);
+                break;
 
-        else if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<CombatManager>().TakeDamage(damageToPlayer);
+            case "DashShield":
+                gameManager.UpdateScore(scoreToAdd);
+                Explosion();
+                break;
+
+            case "BubbleShield":
+                gameManager.UpdateScore(scoreToAdd);
+                Explosion();
+                collision.gameObject.SetActive(false);
+                break;
+
+            case "Player":
+                collision.gameObject.GetComponent<CombatManager>().TakeDamage(damageToPlayer);
+                break;
         }
     }
 
