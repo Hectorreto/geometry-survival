@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject WinMenu;
 
     public bool hasWon = false;
+    [SerializeField] private GameObject spawnManager;
+    [SerializeField] private EnemySpawner greenEnemySpawner;
+    [SerializeField] private EnemySpawner redEnemySpawner;
+    [SerializeField] private EnemySpawner purpleEnemySpawner;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +40,29 @@ public class GameManager : MonoBehaviour
     {
         SetCountDown();
         HasWonTheLevel(hasWon);
+
+        checkDifficulty();
+    }
+
+    private void checkDifficulty()
+    {
+        int timeForRedEnemies = 420; // 7 minutes remaining
+        int timeForPurpleEnemies = 360; // 4 minutes remaining
+
+        if (remainingTime < timeForRedEnemies) {
+            redEnemySpawner.enabled = true;
+
+            // Background music 2
+            //print("Change to backgroundmusic2")
+        }
+
+        if (remainingTime < timeForPurpleEnemies)
+        {
+            purpleEnemySpawner.enabled = true;
+
+            // Background music 3
+            //print("Change to backgroundmusic3")
+        }
     }
 
     public void UpdateScore(int scoreToAdd)

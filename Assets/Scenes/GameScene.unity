@@ -3786,6 +3786,10 @@ MonoBehaviour:
   countDownText: {fileID: 1392499762}
   WinMenu: {fileID: 1656958556}
   hasWon: 0
+  spawnManager: {fileID: 1953642922}
+  greenEnemySpawner: {fileID: 1953642924}
+  redEnemySpawner: {fileID: 1953642925}
+  purpleEnemySpawner: {fileID: 1953642923}
 --- !u!4 &1697913899
 Transform:
   m_ObjectHideFlags: 0
@@ -4737,8 +4741,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1953642926}
-  - component: {fileID: 1953642925}
   - component: {fileID: 1953642924}
+  - component: {fileID: 1953642925}
   - component: {fileID: 1953642923}
   - component: {fileID: 1953642927}
   m_Layer: 0
@@ -4755,14 +4759,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953642922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d07a79276ef50246a27bdf250b28606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2849279608732700309, guid: fa26b93dc27e05c4ba5314a27b769a28, type: 3}
-  spawnInterval: 10
-  spawnLimit: 10
+  spawnInterval: 8
+  spawnLimit: 15
   minSpawnRadius: 20
   maxSpawnRadius: 25
 --- !u!114 &1953642924
@@ -4778,8 +4782,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 34638207734409651, guid: f38d84a4c98fc304d9cfc29414b8a30b, type: 3}
-  spawnInterval: 10
-  spawnLimit: 10
+  spawnInterval: 1
+  spawnLimit: 15
   minSpawnRadius: 20
   maxSpawnRadius: 25
 --- !u!114 &1953642925
@@ -4789,14 +4793,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953642922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d07a79276ef50246a27bdf250b28606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 796909114274087866, guid: 6eb11394ec3916f439a1789628f1d2e8, type: 3}
-  spawnInterval: 10
-  spawnLimit: 10
+  spawnInterval: 2
+  spawnLimit: 15
   minSpawnRadius: 20
   maxSpawnRadius: 25
 --- !u!4 &1953642926
