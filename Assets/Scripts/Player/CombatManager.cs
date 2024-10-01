@@ -64,4 +64,17 @@ public class CombatManager : MonoBehaviour
         Destroy(gameObject);
         Time.timeScale = 0;
     }
+
+    public void AddHealth(int health)
+    {
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += health;
+        } else
+        {
+            print("+1000!");
+        }
+
+        playerHealthUI.UpdateHealthUI(currentHealth);
+    }
 }

@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private CombatManager combatManager;
+
     void Start()
     {
-        
+        combatManager = GetComponent<CombatManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,6 +19,7 @@ public class ItemManager : MonoBehaviour
             case "HealthItem":
                 print("Hearth collected!");
                 Destroy(collision.gameObject);
+                combatManager.AddHealth(1);
                 break;
 
         }

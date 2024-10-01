@@ -2310,11 +2310,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 350531833251299418, guid: c23b1889a6f623b408907bb9cc590ba1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.8747177
+      value: 1.69
       objectReference: {fileID: 0}
     - target: {fileID: 350531833251299418, guid: c23b1889a6f623b408907bb9cc590ba1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23188657
+      value: 3.31
       objectReference: {fileID: 0}
     - target: {fileID: 350531833251299418, guid: c23b1889a6f623b408907bb9cc590ba1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5354,6 +5354,10 @@ PrefabInstance:
       propertyPath: rightFloatingJoystick
       value: 
       objectReference: {fileID: 366928916}
+    - target: {fileID: 1183442668249043766, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1183442668249043766, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
       propertyPath: gameOverMenu
       value: 
