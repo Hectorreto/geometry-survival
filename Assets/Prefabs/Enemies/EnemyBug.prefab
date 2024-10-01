@@ -104,6 +104,8 @@ MonoBehaviour:
   ps: {fileID: 1290523068856044294, guid: 656aa6fa389304e4aa39c9c55b584974, type: 3}
   damageToPlayer: 1
   scoreToAdd: 1
+  hearthItem: {fileID: 5511198847004559802, guid: 8da442075da2f224bbd97d0fe94bf7a9, type: 3}
+  dropHearthProbability: 20
 --- !u!114 &-3318182517393267474
 MonoBehaviour:
   m_ObjectHideFlags: 0

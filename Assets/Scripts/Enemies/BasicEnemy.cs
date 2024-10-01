@@ -6,8 +6,10 @@ using UnityEngine;
 public class BasicEnemy : MonoBehaviour
 {
     public ParticleSystem ps;
-    [SerializeField] int damageToPlayer = 1;
-    [SerializeField] int scoreToAdd;
+    [SerializeField] private int damageToPlayer = 1;
+    [SerializeField] private int scoreToAdd;
+    [SerializeField] private GameObject heartItem;
+    [SerializeField] private int dropHearthProbability;
     private GameManager gameManager;
 
     // This is used so scripts can know when an enemy is destroyed
@@ -33,17 +35,20 @@ public class BasicEnemy : MonoBehaviour
             case "Bullet":
                 gameManager.UpdateScore(scoreToAdd);
                 Explosion();
+                DropHealth();
                 Destroy(collision.gameObject);
                 break;
 
             case "DashShield":
                 gameManager.UpdateScore(scoreToAdd);
                 Explosion();
+                DropHealth();
                 break;
 
             case "BubbleShield":
                 gameManager.UpdateScore(scoreToAdd);
                 Explosion();
+                DropHealth();
                 collision.gameObject.SetActive(false);
                 break;
 
@@ -58,5 +63,18 @@ public class BasicEnemy : MonoBehaviour
         Instantiate(ps, transform.position, Quaternion.identity);
         Destroy(gameObject);
         OnDestroy();
+    }
+
+    private void DropHealth()
+    {
+        if (heartItem == null) return;
+
+        int randomNumber = UnityEngine.Random.Range(0, 100);
+
+        if (randomNumber < dropHearthProbability)
+        {
+            Instantiate(heartItem, transform.position, Quaternion.identity);
+            print("drop health");
+        }
     }
 }
