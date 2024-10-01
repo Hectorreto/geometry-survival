@@ -13,6 +13,7 @@ public class CombatManager : MonoBehaviour
     public bool hasShield = false;
     //[SerializeField]private Image[] healthSprites;
     // public event EventHandler PlayerDeath;
+    [SerializeField] private GameManager gameManager;
 
     private void Start()
     {
@@ -65,14 +66,14 @@ public class CombatManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void AddHealth(int health)
+    public void AddHealth(int health, int score)
     {
         if (currentHealth < maxHealth)
         {
             currentHealth += health;
         } else
         {
-            print("+1000!");
+            gameManager.UpdateScore(score);
         }
 
         playerHealthUI.UpdateHealthUI(currentHealth);

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     private CombatManager combatManager;
+    [SerializeField] private int hearthScore;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class ItemManager : MonoBehaviour
             case "HealthItem":
                 print("Hearth collected!");
                 Destroy(collision.gameObject);
-                combatManager.AddHealth(1);
+                combatManager.AddHealth(1, hearthScore);
                 break;
 
         }

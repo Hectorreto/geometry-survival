@@ -346,6 +346,7 @@ MonoBehaviour:
   maxHealth: 3
   playerHealthUI: {fileID: 0}
   hasShield: 0
+  gameManager: {fileID: 0}
 --- !u!114 &2776157640392705947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d709b2088396946b9ba2c031f6f146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hearthScore: 1000
 --- !u!212 &1679916483865918766
 SpriteRenderer:
   m_ObjectHideFlags: 0
