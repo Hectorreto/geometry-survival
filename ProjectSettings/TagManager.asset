@@ -10,6 +10,8 @@ TagManager:
   - BubblePowerup
   - DashShield
   - BubbleShield
+  - HealthItem
+  - Item
   layers:
   - Default
   - TransparentFX
