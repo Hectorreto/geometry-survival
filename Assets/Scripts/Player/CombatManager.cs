@@ -8,7 +8,7 @@ public class CombatManager : MonoBehaviour
 {
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] private int maxHealth;
-    private int currentHealth;
+    public int currentHealth;
     public PlayerHealth playerHealthUI;
     public bool hasShield = false;
     //[SerializeField]private Image[] healthSprites;

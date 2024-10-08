@@ -3960,6 +3960,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98bd2a99ef9016c42957fab2437d7fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1756680035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1183442668249043766, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+  m_PrefabInstance: {fileID: 4994918963933034021}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756680021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c603003bdf514e41b2c25dee473214f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1776231275
 GameObject:
   m_ObjectHideFlags: 0
@@ -5019,6 +5030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1756680021}
+  combatManager: {fileID: 1756680035}
 --- !u!1 &2081555046
 GameObject:
   m_ObjectHideFlags: 0

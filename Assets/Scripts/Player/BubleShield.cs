@@ -5,10 +5,14 @@ using UnityEngine;
 public class BubleShield : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private CombatManager combatManager;
 
     private void FixedUpdate()
     {
-        transform.position = player.transform.position;
-        transform.Rotate(0, 0, 1);
+        if (combatManager.currentHealth > 0)
+        {
+            transform.position = player.transform.position;
+            transform.Rotate(0, 0, 1);
+        }
     }
 }
