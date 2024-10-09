@@ -75,7 +75,6 @@ public class CombatManager : MonoBehaviour
         {
             gameManager.UpdateScore(score);
         }
-
         playerHealthUI.UpdateHealthUI(currentHealth);
     }
 }
