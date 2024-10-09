@@ -26,7 +26,12 @@ public class BossManager : MonoBehaviour
 
     private void Update()
     {
-        CheckBossHealth();
+        if (getHealth() <= 0)
+        {
+            print("Congratulations you won the game!");
+            Destroy(this.gameObject);
+        }
+
         if (IsDamageOnCooldown())
         {
             circleCollider2D.enabled = true;
@@ -81,12 +86,8 @@ public class BossManager : MonoBehaviour
         print("Vida del boss: " + health);
     }
 
-    public void CheckBossHealth()
+    public int getHealth()
     {
-        if(health <= 0)
-        {
-            print("Congratulations you won the game!");
-            Destroy(this.gameObject);
-        }
+        return health;
     }
 }
