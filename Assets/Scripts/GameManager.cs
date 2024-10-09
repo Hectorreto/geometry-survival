@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EnemySpawner greenEnemySpawner;
     [SerializeField] private EnemySpawner redEnemySpawner;
     [SerializeField] private EnemySpawner purpleEnemySpawner;
+    [SerializeField] private GameObject enemyBoss;
 
     // Start is called before the first frame update
     void Start()
@@ -46,8 +47,9 @@ public class GameManager : MonoBehaviour
 
     private void checkDifficulty()
     {
-        int timeForRedEnemies = 570; // 7 minutes remaining
-        int timeForPurpleEnemies = 540; // 4 minutes remaining
+        int timeForRedEnemies = 420; // 7 minutes remaining
+        int timeForPurpleEnemies = 240; // 4 minutes remaining
+        int timeForBossFight = 60; //1 minute remaining
 
         if (remainingTime < timeForRedEnemies) {
             redEnemySpawner.enabled = true;
@@ -62,6 +64,11 @@ public class GameManager : MonoBehaviour
 
             // Background music 3
             //print("Change to backgroundmusic3")
+        }
+
+        if (remainingTime < timeForBossFight)
+        {
+            enemyBoss.SetActive(true);
         }
     }
 
