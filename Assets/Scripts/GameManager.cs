@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         SetCountDown();
         HasWonTheLevel(hasWon);
 
-        //checkDifficulty();
+        checkDifficulty();
     }
 
     private void checkDifficulty()
