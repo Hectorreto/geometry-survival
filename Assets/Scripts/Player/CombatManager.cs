@@ -51,7 +51,7 @@ public class CombatManager : MonoBehaviour
                 BasicEnemy basicEnemy = rangeEnemies.GetComponent<BasicEnemy>();
                 if (basicEnemy != null)
                 {
-                    basicEnemy.Explosion();
+                    basicEnemy.DeathExplosion();
                 }
             }
         }

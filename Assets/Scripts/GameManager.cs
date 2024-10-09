@@ -41,13 +41,13 @@ public class GameManager : MonoBehaviour
         SetCountDown();
         HasWonTheLevel(hasWon);
 
-        checkDifficulty();
+        //checkDifficulty();
     }
 
     private void checkDifficulty()
     {
-        int timeForRedEnemies = 420; // 7 minutes remaining
-        int timeForPurpleEnemies = 360; // 4 minutes remaining
+        int timeForRedEnemies = 570; // 7 minutes remaining
+        int timeForPurpleEnemies = 540; // 4 minutes remaining
 
         if (remainingTime < timeForRedEnemies) {
             redEnemySpawner.enabled = true;

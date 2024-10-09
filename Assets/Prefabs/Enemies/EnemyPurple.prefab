@@ -107,6 +107,7 @@ MonoBehaviour:
   scoreToAdd: 2
   heartItem: {fileID: 5511198847004559802, guid: 8da442075da2f224bbd97d0fe94bf7a9, type: 3}
   dropHearthProbability: 20
+  health: 10
 --- !u!114 &-7985640014583435968
 MonoBehaviour:
   m_ObjectHideFlags: 0

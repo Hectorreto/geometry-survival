@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BossManager : MonoBehaviour
@@ -17,11 +18,18 @@ public class BossManager : MonoBehaviour
     private GameManager gameManager;
     private int damageReceived = 1;
 
+    [SerializeField] private GameObject bulletPrefab;
+    Rigidbody2D bulletRb;
+    [SerializeField] private float angle;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private Transform bulletSpawn;
 
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         circleCollider2D = GetComponent<CircleCollider2D>();
+        InvokeRepeating("Shoot", 5f, 5f);
+        bulletRb = bulletPrefab.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -89,5 +97,19 @@ public class BossManager : MonoBehaviour
     public int getHealth()
     {
         return health;
+    }
+
+    private void Shoot()
+    {
+        angle = 60f;
+        for (int i = 0; i < 5; i++)
+        {
+            var shotRotation = gameObject.transform.rotation;
+            shotRotation *= Quaternion.Euler(0, 0, angle);
+
+            Instantiate(bulletPrefab, new Vector2(bulletSpawn.position.x, bulletSpawn.position.y), shotRotation);
+
+            angle = angle - 30f;
+        }
     }
 }

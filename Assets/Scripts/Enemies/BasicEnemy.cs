@@ -11,6 +11,7 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField] private GameObject heartItem;
     [SerializeField] private int dropHearthProbability;
     private GameManager gameManager;
+    [SerializeField] private int health;
 
     // This is used so scripts can know when an enemy is destroyed
     public Action OnDestroy = () => {};
@@ -18,6 +19,11 @@ public class BasicEnemy : MonoBehaviour
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
+    private void Update()
+    {
+        CheckHealth();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,21 +40,18 @@ public class BasicEnemy : MonoBehaviour
         {
             case "Bullet":
                 gameManager.UpdateScore(scoreToAdd);
-                Explosion();
-                DropHealth();
+                ReceiveDamage(1);
                 Destroy(collision.gameObject);
                 break;
 
             case "DashShield":
                 gameManager.UpdateScore(scoreToAdd);
-                Explosion();
-                DropHealth();
+                DeathExplosion();
                 break;
 
             case "BubbleShield":
                 gameManager.UpdateScore(scoreToAdd);
-                Explosion();
-                DropHealth();
+                DeathExplosion();
                 collision.gameObject.SetActive(false);
                 break;
 
@@ -58,9 +61,10 @@ public class BasicEnemy : MonoBehaviour
         }
     }
 
-    public void Explosion()
+    public void DeathExplosion()
     {
         Instantiate(ps, transform.position, Quaternion.identity);
+        DropHealth();
         Destroy(gameObject);
         OnDestroy();
     }
@@ -77,4 +81,19 @@ public class BasicEnemy : MonoBehaviour
             print("drop health");
         }
     }
+
+    public void ReceiveDamage(int damageToReceive)
+    {
+        health -= damageToReceive;
+        print("EnemyHealth: " + health);
+    }
+
+    private void CheckHealth()
+    {
+        if(health <= 0)
+        {
+            DeathExplosion();
+        }
+    }
+
 }

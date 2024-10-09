@@ -27,8 +27,8 @@ public class RedEnemy : MonoBehaviour
                 bullet.GetComponent<Rigidbody2D>().velocity = transform.right * bulletSpeed;
                 lastTimeShot = Time.time;
 
-                // destroy the bullet after 10 seconds
-                Destroy(bullet, 20.0f);
+                // destroy the bullet after 15 seconds
+                Destroy(bullet, 15.0f);
             }
         }
     }
