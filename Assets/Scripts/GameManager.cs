@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int startMinutes = 10;
     private float remainingTime;
     public TextMeshProUGUI countDownText;
+    private int difficulty = 0;
     #endregion
 
     [SerializeField] GameObject WinMenu;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        remainingTime = startMinutes * 60;//convert minutes to seconds
+        remainingTime = startMinutes * 60; //convert minutes to seconds
         UpdateScore(0);
     }
 
@@ -47,28 +48,48 @@ public class GameManager : MonoBehaviour
 
     private void checkDifficulty()
     {
-        int timeForRedEnemies = 420; // 7 minutes remaining
-        int timeForPurpleEnemies = 240; // 4 minutes remaining
-        int timeForBossFight = 60; //1 minute remaining
+        int timeForGreenEnemies = 10 * 60; // 10 minutes remaining
+        int timeForRedEnemies = 7 * 60; // 7 minutes remaining
+        int timeForPurpleEnemies = 4 * 60; // 4 minutes remaining
+        int timeForBossFight = 1 * 60; // 1 minute remaining
 
-        if (remainingTime < timeForRedEnemies) {
-            redEnemySpawner.enabled = true;
-
-            // Background music 2
-            //print("Change to backgroundmusic2")
-        }
-
-        if (remainingTime < timeForPurpleEnemies)
+        switch (difficulty)
         {
-            purpleEnemySpawner.enabled = true;
+            case 0:
+                if (remainingTime < timeForGreenEnemies)
+                {
+                    print("Change to difficulty: 1");
+                    difficulty = 1;
+                    greenEnemySpawner.enabled = true;
+                }
+                break;
 
-            // Background music 3
-            //print("Change to backgroundmusic3")
-        }
+            case 1:
+                if (remainingTime < timeForRedEnemies)
+                {
+                    print("Change to difficulty: 2");
+                    difficulty = 2;
+                    redEnemySpawner.enabled = true;
+                }
+                break;
 
-        if (remainingTime < timeForBossFight)
-        {
-            enemyBoss.SetActive(true);
+            case 2:
+                if (remainingTime < timeForPurpleEnemies)
+                {
+                    print("Change to difficulty: 3");
+                    difficulty = 3;
+                    purpleEnemySpawner.enabled = true;
+                }
+                break;
+
+            case 3:
+                if (remainingTime < timeForBossFight)
+                {
+                    print("Change to difficulty: 4");
+                    difficulty = 4;
+                    enemyBoss.SetActive(true);
+                }
+                break;
         }
     }
 

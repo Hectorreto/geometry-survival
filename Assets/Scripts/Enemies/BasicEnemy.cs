@@ -23,6 +23,8 @@ public class BasicEnemy : MonoBehaviour
 
     private void Update()
     {
+        // each 10 extra health duplicates the size
+        this.transform.localScale = Vector2.one * (1f + health / 10f);
         CheckHealth();
     }
 
