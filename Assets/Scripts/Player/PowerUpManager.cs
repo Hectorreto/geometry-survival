@@ -68,18 +68,24 @@ public class PowerUpManager : MonoBehaviour
         dashCountText.text = dashCount.ToString();
         powerupButton.SetActive(dashCount > 0);
         
-        // Cooldown
+        // Cooldown to activate dash
         dashCooldown -= Time.deltaTime;
 
+        // Time used to dash
+        dashingRemainingTime -= Time.deltaTime;
 
-        if (dashingRemainingTime > 0)
+        // Add force if it is dashing
+        bool isDashing = dashingRemainingTime > 0;
+        if (isDashing)
         {
-            dashingRemainingTime -= Time.deltaTime;
-
             rb.AddForce(transform.right * dashForce * Time.deltaTime);
             combatManager.hasShield = true;
             dashShield.SetActive(true);
-        }else
+        }
+
+        // Wait a little after dash, then disable shield
+        float timeAfterDash = dashingRemainingTime * -1;
+        if (timeAfterDash > 0.15f)
         {
             combatManager.hasShield = false;
             dashShield.SetActive(false);
@@ -88,8 +94,6 @@ public class PowerUpManager : MonoBehaviour
 
     public void ActivateDash()
     {
-        print("Dash Count: " + dashCount);
-
         if (dashCooldown > 0) return;
         if (dashCount >0)
         {
