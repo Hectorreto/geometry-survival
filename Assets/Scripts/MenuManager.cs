@@ -6,19 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
+
     public void StartGame()
     {
         SceneManager.LoadScene("GameScene");
     }
 
-    public void Credits()
+    public void OpenCredits()
     {
-        //SceneManager.LoadScene("Credits_Menu");
+        animator.SetTrigger("OpenCredits");
+    }
+
+    public void CloseCredits()
+    {
+        animator.SetTrigger("CloseCredits");
     }
 
     public void Quit()
     {
+        // Quit the application
         Application.Quit();
+
+        // Quit if we are in the Unity Editor
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 
     public void Menu()
