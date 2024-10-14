@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ps: {fileID: 1290523068856044294, guid: 656aa6fa389304e4aa39c9c55b584974, type: 3}
   damageToPlayer: 1
-  scoreToAdd: 2
+  scoreToAdd: 1000
   heartItem: {fileID: 5511198847004559802, guid: 8da442075da2f224bbd97d0fe94bf7a9, type: 3}
   dropHearthProbability: 20
   health: 10

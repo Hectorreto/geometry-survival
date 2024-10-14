@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private Animator circleTransition;
+    [SerializeField] private Animator sceneTransition;
 
     public void StartGame()
     {
@@ -16,7 +16,7 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator StartGameCoroutine()
     {
-        circleTransition.SetTrigger("End"); 
+        sceneTransition.SetTrigger("End"); 
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene("GameScene");
@@ -39,7 +39,7 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator QuitCoroutine()
     {
-        circleTransition.SetTrigger("End");
+        sceneTransition.SetTrigger("End");
         yield return new WaitForSeconds(1);
 
         // Quit the application

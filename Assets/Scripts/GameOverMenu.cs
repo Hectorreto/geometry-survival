@@ -6,6 +6,7 @@ using System;
 
 public class GameOverMenu : MonoBehaviour
 {
+    [SerializeField] private Animator sceneTransition;
     [SerializeField] private GameObject gameOverMenu;
     private CombatManager combatManager;
 
