@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EnemySpawner redEnemySpawner;
     [SerializeField] private EnemySpawner purpleEnemySpawner;
     [SerializeField] private GameObject enemyBoss;
+    [SerializeField] private Camera mainCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
                     print("Change to difficulty: 1");
                     difficulty = 1;
                     greenEnemySpawner.enabled = true;
+                    mainCamera.backgroundColor = new Color(0.1921569f, 0.4745098f, 0.4156863f);
                 }
                 break;
 
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
                     print("Change to difficulty: 2");
                     difficulty = 2;
                     redEnemySpawner.enabled = true;
+                    mainCamera.backgroundColor = new Color(0.5188679f, 0.3842559f, 0.3867881f);
                 }
                 break;
 
@@ -79,6 +82,7 @@ public class GameManager : MonoBehaviour
                     print("Change to difficulty: 3");
                     difficulty = 3;
                     purpleEnemySpawner.enabled = true;
+                    mainCamera.backgroundColor = new Color(0.4065059f, 0.3563546f, 0.5283019f);
                 }
                 break;
 
@@ -88,6 +92,7 @@ public class GameManager : MonoBehaviour
                     print("Change to difficulty: 4");
                     difficulty = 4;
                     enemyBoss.SetActive(true);
+                    mainCamera.backgroundColor = new Color(0.1960784f, 0.3176471f, 0.4745098f);
                 }
                 break;
         }
