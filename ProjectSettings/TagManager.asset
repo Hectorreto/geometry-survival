@@ -12,6 +12,7 @@ TagManager:
   - BubbleShield
   - HealthItem
   - Item
+  - ExpItem
   layers:
   - Default
   - TransparentFX

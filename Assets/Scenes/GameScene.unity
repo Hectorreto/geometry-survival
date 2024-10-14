@@ -4220,6 +4220,7 @@ MonoBehaviour:
   purpleEnemySpawner: {fileID: 1953642923}
   enemyBoss: {fileID: 1405882186}
   mainCamera: {fileID: 519420031}
+  MusicManager: {fileID: 0}
 --- !u!4 &1697913899
 Transform:
   m_ObjectHideFlags: 0
@@ -5876,6 +5877,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1697913898}
     - target: {fileID: 1183442668249043766, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: MusicManager
+      value: 
+      objectReference: {fileID: 172625943}
+    - target: {fileID: 1183442668249043766, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
       propertyPath: gameOverMenu
       value: 
       objectReference: {fileID: 418278114}
@@ -5903,6 +5908,10 @@ PrefabInstance:
       propertyPath: shieldBubbles.Array.data[2]
       value: 
       objectReference: {fileID: 361221055}
+    - target: {fileID: 2776157640392705947, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1697913898}
     - target: {fileID: 4340972410212619476, guid: 86eba770b6f5d864f82292a4e44803f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

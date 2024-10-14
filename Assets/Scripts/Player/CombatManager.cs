@@ -14,6 +14,7 @@ public class CombatManager : MonoBehaviour
     //[SerializeField]private Image[] healthSprites;
     // public event EventHandler PlayerDeath;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject MusicManager;
 
     private void Start()
     {
@@ -61,6 +62,7 @@ public class CombatManager : MonoBehaviour
     {
         currentHealth = 0;
         //PlayerDeath?.Invoke(this, EventArgs.Empty);
+        MusicManager.SetActive(false);
         gameOverMenu.SetActive(true);
         Destroy(gameObject);
         Time.timeScale = 0;

@@ -110,6 +110,7 @@ MonoBehaviour:
   heartItem: {fileID: 5511198847004559802, guid: 8da442075da2f224bbd97d0fe94bf7a9, type: 3}
   dropHearthProbability: 20
   health: 3
+  expOrb: {fileID: 7842455051603751454, guid: 81f47f863f78f974594ed83850692092, type: 3}
 --- !u!114 &4724349068451841726
 MonoBehaviour:
   m_ObjectHideFlags: 0

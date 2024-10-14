@@ -10,8 +10,10 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField] private int scoreToAdd;
     [SerializeField] private GameObject heartItem;
     [SerializeField] private int dropHearthProbability;
+    bool healthDropped = false;
     private GameManager gameManager;
     [SerializeField] private int health;
+    [SerializeField] private GameObject expOrb;
 
     // This is used so scripts can know when an enemy is destroyed
     public Action OnDestroy = () => {};
@@ -67,21 +69,33 @@ public class BasicEnemy : MonoBehaviour
     {
         Instantiate(ps, transform.position, Quaternion.identity);
         DropHealth();
+        DropExp();
         Destroy(gameObject);
         OnDestroy();
     }
 
     private void DropHealth()
     {
+
         if (heartItem == null) return;
 
         int randomNumber = UnityEngine.Random.Range(0, 100);
-
         if (randomNumber < dropHearthProbability)
         {
             Instantiate(heartItem, transform.position, Quaternion.identity);
             print("drop health");
+            healthDropped = true;
         }
+        else
+        {
+            healthDropped = false;
+        }
+    }
+
+    private void DropExp()
+    {
+        if (expOrb == null || healthDropped) return;
+        Instantiate(expOrb, transform.position, Quaternion.identity);  
     }
 
     public void ReceiveDamage(int damageToReceive)

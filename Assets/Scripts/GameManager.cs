@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private int score;
     #endregion
 
+    private int expPoints;
+
     #region Countdown
     [SerializeField] private int startMinutes = 10;
     private float remainingTime;
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EnemySpawner purpleEnemySpawner;
     [SerializeField] private GameObject enemyBoss;
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject MusicManager; 
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +46,6 @@ public class GameManager : MonoBehaviour
     {
         SetCountDown();
         HasWonTheLevel(hasWon);
-
         checkDifficulty();
     }
 
@@ -127,6 +129,7 @@ public class GameManager : MonoBehaviour
         {
             WinMenu.SetActive(hasWon);
             Time.timeScale = 0;
+            MusicManager.SetActive(false);
         }
     }
 
@@ -135,5 +138,11 @@ public class GameManager : MonoBehaviour
         // SceneManager.LoadScene(LevelName);
         Debug.Log("Se cargó el nivel: " + LevelName);
     }
+
+    public void AddExp(int expToAdd)
+    {
+        expPoints += expToAdd;
+        print("Currently Exp: " + expPoints);
+    } 
 
 }
