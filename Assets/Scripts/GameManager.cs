@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EnemySpawner purpleEnemySpawner;
     [SerializeField] private GameObject enemyBoss;
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private GameObject MusicManager; 
+    [SerializeField] private GameObject MusicManager;
+    [SerializeField] private LevelAndStatsTracker levelAndStatsTracker;
 
     // Start is called before the first frame update
     void Start()
@@ -142,7 +143,7 @@ public class GameManager : MonoBehaviour
     public void AddExp(int expToAdd)
     {
         expPoints += expToAdd;
-        print("Currently Exp: " + expPoints);
+        levelAndStatsTracker.GetExp(expToAdd);
     } 
 
 }

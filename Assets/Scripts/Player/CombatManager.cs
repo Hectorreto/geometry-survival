@@ -6,8 +6,11 @@ using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour
 {
+    [SerializeField] GameObject LevelUpUI;
+
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] private int maxHealth;
+    private int healthToIncrease = 1;
     public int currentHealth;
     public PlayerHealth playerHealthUI;
     public bool hasShield = false;
@@ -78,5 +81,14 @@ public class CombatManager : MonoBehaviour
             gameManager.UpdateScore(score);
         }
         playerHealthUI.UpdateHealthUI(currentHealth);
+    }
+
+    public void IncreaseMaxHealth()
+    {
+        maxHealth += healthToIncrease;
+        currentHealth = maxHealth; // it helps the player to fill the health
+        playerHealthUI.UpdateHealthUI(currentHealth);
+        Time.timeScale = 1;
+        LevelUpUI.SetActive(false);
     }
 }
