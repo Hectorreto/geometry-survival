@@ -109,6 +109,7 @@ MonoBehaviour:
   dropHearthProbability: 20
   health: 10
   expOrb: {fileID: 7842455051603751454, guid: 81f47f863f78f974594ed83850692092, type: 3}
+  bulletBehavior: {fileID: 5490013582997265127, guid: 9251abe9d154f98458814350b1960c3a, type: 3}
 --- !u!114 &-7985640014583435968
 MonoBehaviour:
   m_ObjectHideFlags: 0

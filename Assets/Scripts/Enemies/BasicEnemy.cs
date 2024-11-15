@@ -13,7 +13,11 @@ public class BasicEnemy : MonoBehaviour
     bool healthDropped = false;
     private GameManager gameManager;
     [SerializeField] private int health;
+    //[SerializeField] public int damageReceived = 1;
+    //[SerializeField] public int damageToIncrease = 1;
+    //[SerializeField] public LevelAndStatsTracker levelAndStatsTracker;
     [SerializeField] private GameObject expOrb;
+    [SerializeField] BulletBehavior bulletBehavior;
 
     // This is used so scripts can know when an enemy is destroyed
     public Action OnDestroy = () => {};
@@ -44,7 +48,7 @@ public class BasicEnemy : MonoBehaviour
         {
             case "Bullet":
                 gameManager.UpdateScore(scoreToAdd);
-                ReceiveDamage(1);
+                ReceiveDamage(bulletBehavior.currentDamage);
                 Destroy(collision.gameObject);
                 break;
 
@@ -112,4 +116,13 @@ public class BasicEnemy : MonoBehaviour
         }
     }
 
+    //private void CheckDamage()
+    //{
+    //    damageReceived = levelAndStatsTracker.curretDamage;
+    //}
+
+    //public void IncreaseDamageReceived()
+    //{
+    //    damageReceived += damageToIncrease;
+    //}
 }

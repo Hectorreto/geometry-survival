@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6227970550789458385}
   - component: {fileID: 9076218290948358529}
+  - component: {fileID: 5490013582997265127}
   - component: {fileID: 4087341846519138759}
   - component: {fileID: -1557798421898194886}
   - component: {fileID: 4366849394666661124}
@@ -87,6 +88,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5490013582997265127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065043616948065361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab305824284d717419871f4b40159c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDamage: 1
+  damageToIncrease: 1
+  LevelUpUI: {fileID: 0}
 --- !u!50 &4087341846519138759
 Rigidbody2D:
   serializedVersion: 4
