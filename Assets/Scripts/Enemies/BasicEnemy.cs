@@ -12,7 +12,7 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField] private int dropHearthProbability;
     bool healthDropped = false;
     private GameManager gameManager;
-    [SerializeField] private int health;
+    [SerializeField] private float health;
     //[SerializeField] public int damageReceived = 1;
     //[SerializeField] public int damageToIncrease = 1;
     //[SerializeField] public LevelAndStatsTracker levelAndStatsTracker;
@@ -46,11 +46,11 @@ public class BasicEnemy : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
-            case "Bullet":
-                gameManager.UpdateScore(scoreToAdd);
-                ReceiveDamage(bulletBehavior.currentDamage);
-                Destroy(collision.gameObject);
-                break;
+            //case "Bullet":
+            //    gameManager.UpdateScore(scoreToAdd);
+            //    ReceiveDamage(bulletBehavior.currentDamage);
+            //    Destroy(collision.gameObject);
+            //    break;
 
             case "DashShield":
                 gameManager.UpdateScore(scoreToAdd);
@@ -102,8 +102,9 @@ public class BasicEnemy : MonoBehaviour
         Instantiate(expOrb, transform.position, Quaternion.identity);  
     }
 
-    public void ReceiveDamage(int damageToReceive)
+    public void ReceiveDamage(float damageToReceive)
     {
+        gameManager.UpdateScore(scoreToAdd);
         health -= damageToReceive;
         print("EnemyHealth: " + health);
     }

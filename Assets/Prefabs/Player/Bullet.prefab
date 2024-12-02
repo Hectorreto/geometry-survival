@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab305824284d717419871f4b40159c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDamage: 1
+  damage: 1
   damageToIncrease: 1
   LevelUpUI: {fileID: 0}
 --- !u!50 &4087341846519138759

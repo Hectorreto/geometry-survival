@@ -5,21 +5,27 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
-    [SerializeField] public int currentDamage = 1;
-    [SerializeField] public int damageToIncrease = 1;
+    [SerializeField] public float damage = 1;
+    [SerializeField] public float damageToIncrease = 1;
     [SerializeField] public GameObject LevelUpUI;
 
-    private void Start()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        BasicEnemy enemy = collision.GetComponent<BasicEnemy>();
+        if (enemy != null)
+        {
+            enemy.ReceiveDamage(damage);
+            Destroy(gameObject);
+        }
     }
-    public void IncreaseDamage()
-    {
-        LevelUpUI = GameObject.Find("LevelUpUI");
-        print("Last damage: " + currentDamage);
-        currentDamage += damageToIncrease;
-        print("New damage: " + currentDamage);
-        LevelUpUI.SetActive(false);
-        Time.timeScale = 1;
-    }
+
+    //public void IncreaseDamage()
+    //{
+    //    LevelUpUI = GameObject.Find("LevelUpUI");
+    //    print("Last damage: " + damage);
+    //    damage += damageToIncrease;
+    //    print("New damage: " + damage);
+    //    LevelUpUI.SetActive(false);
+    //    Time.timeScale = 1;
+    //}
 }

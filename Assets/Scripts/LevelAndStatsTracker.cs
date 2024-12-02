@@ -7,8 +7,9 @@ public class LevelAndStatsTracker : MonoBehaviour
     private int actualExp = 0;
     private int playerLevel = 1;
     [SerializeField] GameObject LevelUpUI;
-    [SerializeField] BasicEnemy basicEnemy;
-    [SerializeField] public int curretDamage = 1;
+
+    //[SerializeField] BasicEnemy basicEnemy;
+    //[SerializeField] public int curretDamage = 1;
     void Start()
     {
         //curretDamage = basicEnemy.damageReceived;
@@ -25,7 +26,7 @@ public class LevelAndStatsTracker : MonoBehaviour
         actualExp += ExpToAdd;
         print("Currently Exp: " + actualExp);
 
-        if (actualExp >= 20)
+        if (actualExp >= 5)
         {
             //Stats selection
             playerLevel += 1;

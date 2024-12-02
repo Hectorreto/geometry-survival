@@ -16,10 +16,13 @@ public class EmbededSyntax : MonoBehaviour
     private PowerUpManager powerUpManager;
 
     [SerializeField] public float speed;
+    [SerializeField] public float speedToUpgrade = 1.05f;
     private Rigidbody2D rb;
     private Vector2 direction, directionGamepad, rotationGamepad;
     private Vector3 aimPosition;
     private float zRotation;
+    [SerializeField] private float currentBulletDamage;
+    [SerializeField] GameObject UpgradeUI;
 
     [SerializeField] private Transform shootPosition;
     [SerializeField] private GameObject projectilePrefab;
@@ -99,8 +102,27 @@ public class EmbededSyntax : MonoBehaviour
     {
         Vector3 shootDirection = aimPosition - shootPosition.position;
         GameObject tempProjectile = Instantiate(projectilePrefab, shootPosition.position, transform.rotation);
+        BulletBehavior bulletScript = tempProjectile.GetComponent<BulletBehavior>();
+        if (bulletScript != null)
+        {
+            bulletScript.damage = currentBulletDamage;
+        }
         tempProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(shootDirection.x, shootDirection.y).normalized * speedProjectile;
         // shootAudioSource.Play();
+    }
+
+    public void UpgradeWeapon(float additionalDamage)
+    {
+        currentBulletDamage += additionalDamage;
+        UpgradeUI.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void UpgradeSpeed()
+    {
+        speed *= speedToUpgrade;
+        UpgradeUI.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void Dash(InputAction.CallbackContext value)
